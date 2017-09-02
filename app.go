@@ -17,7 +17,7 @@ func main() {
 
 	log.Info("Listening on", config.Port)
 
-	handler := &Handler{}
+	handler := &Handler{config.MaxRandomDelayMS}
 	err = http.ListenAndServe(fmt.Sprintf(":%d", config.Port), NewRouter(handler))
 
 	if err != nil {
