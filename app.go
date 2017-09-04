@@ -6,9 +6,12 @@ import (
 	"os"
 	log "github.com/sirupsen/logrus"
 	"github.com/kelseyhightower/envconfig"
+	"time"
 )
 
 func main() {
+
+	log.SetFormatter(&log.JSONFormatter{TimestampFormat:time.RFC3339Nano})
 
 	config, err := LoadAppConfig()
 	if err != nil {
